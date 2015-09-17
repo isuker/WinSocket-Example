@@ -9,7 +9,7 @@ private:
 	int socketType = SOCK_STREAM;
 	int protocolType = IPPROTO_TCP;
 public:
-	static WinSocketBuilder* newInstance() throw (int);
+	static WinSocketBuilder newInstance() throw (int);
 	/*
 	  	setAddressFamily(int addressFamily)
 	    @parameter: int
@@ -42,11 +42,12 @@ public:
 				The Bluetooth address family.
 				This address family is supported on Windows XP with SP2 or later if the computer has a Bluetooth adapter and driver installed. 		
 	*/
-	WinSocketBuilder* setAddressFamily(int addressFamily);
+	WinSocketBuilder setAddressFamily(int addressFamily);
 	/*
 		
 	*/
-	WinSocketBuilder* setSocketType(int socketType);
-	WinSocketBuilder* setProtocol(int protocolType);
+	WinSocketBuilder setSocketType(int socketType);
+	WinSocketBuilder setProtocol(int protocolType);
 	SOCKET build() throw(int);
+	~WinSocketBuilder();
 };

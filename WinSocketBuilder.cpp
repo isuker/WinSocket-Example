@@ -1,25 +1,25 @@
 #include"WinSocketBuilder.h"
 WSADATA WinSocketBuilder::wsaData;
- WinSocketBuilder* WinSocketBuilder::newInstance(){
+ WinSocketBuilder WinSocketBuilder::newInstance(){
 	 int result=WSAStartup(MAKEWORD(2, 2), &wsaData);
 	 if (result != SUCCESS){
 		 throw ERROR_RESULT;
 	 }
-	 return new WinSocketBuilder();
+	 return  WinSocketBuilder();
 }
 
- WinSocketBuilder* WinSocketBuilder::setSocketType(int socketType){
+ WinSocketBuilder WinSocketBuilder::setSocketType(int socketType){
 	 this->socketType = socketType;
-	 return this;
+	 return *this;
  }
 
- WinSocketBuilder* WinSocketBuilder::setProtocol(int protocolType){
+ WinSocketBuilder WinSocketBuilder::setProtocol(int protocolType){
 	 this->protocolType = protocolType;
-	 return this;
+	 return *this;
  }
- WinSocketBuilder* WinSocketBuilder::setAddressFamily(int addressFamily){
+ WinSocketBuilder WinSocketBuilder::setAddressFamily(int addressFamily){
 	 this->addressFamily = addressFamily;
-	 return this;
+	 return *this;
  }
  SOCKET WinSocketBuilder::build(){
 	  SOCKET mSocket= socket(addressFamily, socketType, protocolType);
@@ -27,4 +27,7 @@ WSADATA WinSocketBuilder::wsaData;
 		  throw WSAGetLastError();
 	  }
 	  return mSocket;
+ }
+ WinSocketBuilder::~WinSocketBuilder(){
+
  }
