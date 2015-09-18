@@ -9,7 +9,7 @@
 class HostBuilder {
     private:
     SOCKADDR_IN socketAddress;
-    char buildType = '';
+    SOCKET mySocket;
     public:
         static HostBuilder newInstance();
         ServerHost buildServer();

@@ -7,7 +7,12 @@
 
 
 class ServerHost {
-
+    private:
+        SOCKET serverSocket;
+        ServerHost(SOCKET,SOCKADDR_IN);
+    friend ServerHost HostBuilder::buildServer();
+    public:
+        void listenRequest();
 };
 
 
