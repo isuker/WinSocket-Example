@@ -1,7 +1,6 @@
 //
 // Created by Jianhui Zhu on 15-09-17.
 //
-
 #include "HostBuilder.h"
     HostBuilder HostBuilder::newInstance() {
         return HostBuilder();
@@ -20,5 +19,13 @@
         return *this;
     }
     ServerHost HostBuilder::buildServer() {
-        return ServerHost::newInstance(mySocket,socketAddress);
+		mySocket = WinSocketBuilder::newInstance().setAddressFamily(socketAddress.sin_family)
+			.build();
+		return ServerHost(mySocket,socketAddress);
     }
+
+	ClientHost HostBuilder::buildClient(){
+		mySocket = WinSocketBuilder::newInstance().setAddressFamily(socketAddress.sin_family)
+			.build();
+		return ClientHost(mySocket, socketAddress);
+	}

@@ -4,17 +4,21 @@
 
 #ifndef HOSTFORSOCKET_CLIENTHOST_H
 #define HOSTFORSOCKET_CLIENTHOST_H
-
+#include <winsock.h>
+#include <iostream>
+class HostBuilder;
 
 class ClientHost {
+	friend class HostBuilder;
     private:
         SOCKET clientSocket;
-        ClientHost(SOCKET,SOCKADDR_IN);
-    friend ClientHost HostBuilder::buildClient();
+        ClientHost(SOCKET,SOCKADDR_IN) throw (int);
+    
     public:
-        ClientHost connect();
-        ClientHost sendMessage();
+		ClientHost connectServer(SOCKADDR_IN) throw (int);
+		ClientHost sendMessage(const char* msg, int len) throw (int);
+	
 };
 
-
 #endif //HOSTFORSOCKET_CLIENTHOST_H
+

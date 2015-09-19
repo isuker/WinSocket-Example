@@ -4,15 +4,19 @@
 
 #ifndef HOSTFORSOCKET_SERVERHOST_H
 #define HOSTFORSOCKET_SERVERHOST_H
-
-
+#include <winsock.h>
+#include <iostream>
+class HostBuilder;
 class ServerHost {
+	friend class HostBuilder;
     private:
         SOCKET serverSocket;
-        ServerHost(SOCKET,SOCKADDR_IN);
-    friend ServerHost HostBuilder::buildServer();
+		SOCKADDR_IN server;
+		ServerHost(SOCKET, SOCKADDR_IN) throw (int);
     public:
         void listenRequest();
+		SOCKADDR_IN getServerSocketAddress();
+		
 };
 
 

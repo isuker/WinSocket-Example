@@ -28,6 +28,3 @@ WSADATA WinSocketBuilder::wsaData;
 	  }
 	  return mSocket;
  }
- WinSocketBuilder::~WinSocketBuilder(){
-
- }

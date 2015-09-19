@@ -49,5 +49,4 @@ public:
 	WinSocketBuilder setSocketType(int socketType);
 	WinSocketBuilder setProtocol(int protocolType);
 	SOCKET build() throw(int);
-	~WinSocketBuilder();
 };

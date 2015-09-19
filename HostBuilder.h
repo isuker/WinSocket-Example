@@ -4,8 +4,10 @@
 
 #ifndef HOSTFORSOCKET_HOSTBUILDER_H
 #define HOSTFORSOCKET_HOSTBUILDER_H
-
-
+#include "ServerHost.h"
+#include "ClientHost.h"
+#include <winsock.h>
+#include "WinSocketBuilder.h"
 class HostBuilder {
     private:
     SOCKADDR_IN socketAddress;
