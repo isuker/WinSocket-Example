@@ -16,7 +16,7 @@ class ClientHost {
     
     public:
 		ClientHost connectServer(SOCKADDR_IN) throw (int);
-		ClientHost sendMessage(const char* msg, int len) throw (int);
+		ClientHost sendMessage(const char* msg) throw (int);
 	
 };
 

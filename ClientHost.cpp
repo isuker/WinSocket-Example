@@ -32,13 +32,12 @@ ClientHost ClientHost::connectServer(SOCKADDR_IN server) {
 	}
 	return *this;
 }
-ClientHost ClientHost::sendMessage(const char* msg, int len) {
+ClientHost ClientHost::sendMessage(const char* msg) {
 	int rlt = 0;
-
 	int iErrMsg = 0;
 
 	//发送消息，指定sock发送消息
-	iErrMsg = send(clientSocket, msg, len, 0);
+	iErrMsg = send(clientSocket, msg, strlen(msg), 0);
 	if (iErrMsg < 0)
 		//发送失败
 	{
