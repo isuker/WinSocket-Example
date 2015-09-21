@@ -1,4 +1,3 @@
-#include "ServerNet.h"
 #include "HostBuilder.h"
 #include <thread>
 int main(int argc, char **argv)
@@ -16,7 +15,7 @@ int main(int argc, char **argv)
 		.setAddressFamily(AF_INET)
 		.buildClient()
 		.connectServer(server.getServerSocketAddress())
-		.sendMessage("da dao zeng xin jie", 20);
+		.sendMessage("Hello", 5);
 
 	serverThread.join();
 	system("pause");
