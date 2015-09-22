@@ -4,7 +4,7 @@ int main(int argc, char **argv)
 {
 	ServerHost server = HostBuilder::newInstance()
 		.setAddress("127.0.0.1")
-		.setAddressFamily(AF_INET)
+		.setAddressFamilyIPv4()
 		.setPortNumber(12345)
 		.buildServer();
 	std::thread serverThread(&ServerHost::listenRequest,server); 
@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	HostBuilder::newInstance()
 		.setAddress("127.0.0.1")
 		.setPortNumber(8888)
-		.setAddressFamily(AF_INET)
+        .setAddressFamilyIPv4()
 		.buildClient()
 		.connectServer(server.getServerSocketAddress())
 		.sendMessage("Hello");

@@ -10,10 +10,6 @@
         socketAddress.sin_addr.s_addr = inet_addr(address);
         return *this;
     }
-    HostBuilder HostBuilder::setAddressFamily(int addressFamily) {
-        socketAddress.sin_family = addressFamily;
-        return *this;
-    }
     HostBuilder HostBuilder::setPortNumber(int portNumber) {
         socketAddress.sin_port=portNumber;
         return *this;
@@ -29,3 +25,31 @@
 			.build();
 		return ClientHost(mySocket, socketAddress);
 	}
+    HostBuilder HostBuilder::setAddressFamilyIPv4(){
+        socketAddress.sin_family=2;
+        return *this;
+    }
+    HostBuilder HostBuilder::setAddressFamilyIPXSPX(){
+        socketAddress.sin_family=6;
+        return *this;
+    }
+    HostBuilder HostBuilder::setAddressFamilyAppleTalk(){
+        socketAddress.sin_family=16;
+        return *this;
+    }
+    HostBuilder HostBuilder::setAddressFamilyNetBIOS(){
+        socketAddress.sin_family=17;
+        return *this;
+    }
+    HostBuilder HostBuilder::setAddressFamilyIPv6(){
+        socketAddress.sin_family=23;
+        return *this;
+    }
+    HostBuilder HostBuilder::setAddressFamilyIrDA(){
+        socketAddress.sin_family=26;
+        return *this;
+    }
+    HostBuilder HostBuilder::setAddressFamilyBluetooth(){
+        socketAddress.sin_family=32;
+        return *this;
+    }

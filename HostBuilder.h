@@ -17,7 +17,13 @@ class HostBuilder {
         static HostBuilder newInstance();
         ServerHost buildServer();
         ClientHost buildClient();
-        HostBuilder setAddressFamily(int);
+        HostBuilder setAddressFamilyIPv4();
+        HostBuilder setAddressFamilyIPXSPX();
+        HostBuilder setAddressFamilyAppleTalk();
+        HostBuilder setAddressFamilyNetBIOS();
+        HostBuilder setAddressFamilyIPv6();
+        HostBuilder setAddressFamilyIrDA();
+        HostBuilder setAddressFamilyBluetooth();
         HostBuilder setPortNumber(int);
         HostBuilder setAddress(const char*);
 };
