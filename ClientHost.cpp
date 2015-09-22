@@ -36,10 +36,8 @@ ClientHost ClientHost::sendMessage(const char* msg) {
 	int rlt = 0;
 	int iErrMsg = 0;
 
-	//发送消息，指定sock发送消息
 	iErrMsg = send(clientSocket, msg, strlen(msg), 0);
 	if (iErrMsg < 0)
-		//发送失败
 	{
 		printf("send msg failed with error : %d\n", iErrMsg);
 		throw 1;

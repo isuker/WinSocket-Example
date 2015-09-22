@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 		.setAddressFamily(AF_INET)
 		.buildClient()
 		.connectServer(server.getServerSocketAddress())
-		.sendMessage("Hello", 5);
+		.sendMessage("Hello");
 
 	serverThread.join();
 	system("pause");
