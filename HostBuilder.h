@@ -12,6 +12,8 @@
 class HostBuilder {
     private:
     SOCKADDR_IN socketAddress;
+    int protocolType = 6;
+    int socketType = 1;
     SOCKET mySocket;
     public:
         static HostBuilder newInstance();
@@ -25,7 +27,21 @@ class HostBuilder {
         HostBuilder setAddressFamilyIrDA();
         HostBuilder setAddressFamilyBluetooth();
         HostBuilder setPortNumber(int);
+        HostBuilder setPortNumberRandom();
+        HostBuilder setProtocolTCP();
+        HostBuilder setProtocolUDP();
+        HostBuilder setProtocolICMP();
+        HostBuilder setProtocolIGMP();
+        HostBuilder setProtocolBluetoothRFCOMM();
+        HostBuilder setProtocolICMPv6();
+        HostBuilder setProtocolRM();
         HostBuilder setAddress(const char*);
+        HostBuilder setSocketTypeSTREAM();
+        HostBuilder setSocketTypeDGRAM();
+        HostBuilder setSocketTypeRAW();
+        HostBuilder setSocketTypeRDM();
+        HostBuilder setSocketTypeSEQPACKET();
+    
 };
 
 
