@@ -3,7 +3,9 @@
 //
 #include "HostBuilder.h"
     HostBuilder HostBuilder::newInstance() {
-        return HostBuilder();
+        HostBuilder hostBuilder= HostBuilder();
+        hostBuilder.socketAddress.sin_addr.s_addr = inet_addr("127.0.0.1");
+        return hostBuilder;
     }
 
     HostBuilder HostBuilder::setAddress(const char * address) {
