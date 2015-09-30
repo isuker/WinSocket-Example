@@ -17,8 +17,8 @@ class HostBuilder {
     SOCKET mySocket;
     public:
         static HostBuilder newInstance();
-        ServerHost buildServer();
-        ClientHost buildClient();
+        virtual ServerHost buildServer();
+        virtual ClientHost buildClient();
         /*
          AF_INET   : 2
          The Internet Protocol version 4 (IPv4) address family.
