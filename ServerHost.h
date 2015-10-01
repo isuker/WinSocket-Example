@@ -12,7 +12,7 @@ class ServerHost {
     private:
         SOCKET serverSocket;
 		SOCKADDR_IN server;
-		ServerHost(SOCKET, SOCKADDR_IN) throw (int);
+		ServerHost(SOCKET, SOCKADDR_IN,std::ofstream*) throw (int);
     public:
         void listenRequest();
 		SOCKADDR_IN getServerSocketAddress();

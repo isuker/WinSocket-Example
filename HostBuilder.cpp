@@ -22,7 +22,7 @@
             .setSocketType(socketType)
             .setProtocol(protocolType)
 			.build();
-		return ServerHost(mySocket,socketAddress);
+		return ServerHost(mySocket,socketAddress,file);
     }
 
 	ClientHost HostBuilder::buildClient(){
@@ -31,7 +31,7 @@
             .setSocketType(socketType)
             .setProtocol(protocolType)
 			.build();
-		return ClientHost(mySocket, socketAddress);
+		return ClientHost(mySocket, socketAddress,file);
 	}
     HostBuilder HostBuilder::setAddressFamilyIPv4(){
         socketAddress.sin_family=2;
@@ -60,9 +60,6 @@
     HostBuilder HostBuilder::setAddressFamilyBluetooth(){
         socketAddress.sin_family=32;
         return *this;
-    }
-    HostBuilder HostBuilder::setPortNumberRandom(){
-        
     }
     HostBuilder HostBuilder::setProtocolTCP(){
         protocolType = 6;
@@ -112,3 +109,7 @@
         socketType=5;
         return *this;
     }
+	HostBuilder HostBuilder::setLogFileWriter(std::ofstream &file){
+		this->file = &file;
+		return *this;
+	}

@@ -8,9 +8,11 @@
 #include "ServerHost.h"
 #include "ClientHost.h"
 #include <winsock.h>
+#include <fstream>
 #include "WinSocketBuilder.h"
 class HostBuilder {
     private:
+	std::ofstream *file;
     SOCKADDR_IN socketAddress;
     int protocolType = 6;
     int socketType = 1;
@@ -71,10 +73,6 @@ class HostBuilder {
          * Parameters # of port
          */
         HostBuilder setPortNumber(int);
-        /*
-         * set the port number randomly
-         */
-        HostBuilder setPortNumberRandom();
         /*
          * IPPROTO_TCP : 6
      	 	 The Transmission Control Protocol (TCP).
@@ -165,7 +163,10 @@ class HostBuilder {
      	 	 A socket type that provides a pseudo-stream packet based on datagrams.
          */
         HostBuilder setSocketTypeSEQPACKET();
-    
+		/*
+			set for writer file purpose
+		*/
+		HostBuilder setLogFileWriter(std::ofstream &file);
 };
 
 

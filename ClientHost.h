@@ -12,7 +12,7 @@ class ClientHost {
 	friend class HostBuilder;
     private:
         SOCKET clientSocket;
-        ClientHost(SOCKET,SOCKADDR_IN) throw (int);
+        ClientHost(SOCKET,SOCKADDR_IN,std::ofstream *) throw (int);
     
     public:
 		ClientHost connectServer(SOCKADDR_IN) throw (int);
